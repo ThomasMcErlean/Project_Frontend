@@ -22,7 +22,10 @@ body {
 }
 header {
   text-align: left;
-  border-bottom: 1px solid black;
+  background-color: var(--primary);
+  color: white;
+  margin: 0;
+  overflow: auto
 }
 .button-primary{
   color: white;
@@ -86,4 +89,21 @@ button:focus {
 }
 .input-field:focus + .input-label + .input-highlight {
   width: 100%;
+}
+
+.dashboard-grid-container {
+  display: grid;
+  height: 100vh;
+  grid-template-areas:
+    "header header"
+    "sidebar main"
+    "footer footer";
+  grid-template-columns: 200px 1fr;
+  grid-template-rows: auto 1fr auto;
+}
+
+.sidebar {
+  grid-area: sidebar;
+  background-color: var(--accent);
+  padding: 20px;
 }
