@@ -5,6 +5,7 @@ import heroImg from './assets/hero.png'
 import './index.css'
 import Accountcreate from './pages/AccountCreate'
 import Dashboard from './pages/Dashboard'
+import Login from './pages/Login'
 import {
   BrowserRouter as Router,
   Route,
@@ -13,7 +14,6 @@ import {
   Outlet
 } from 'react-router-dom';
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
     <>
@@ -29,6 +29,13 @@ function App() {
                     exact to="/AccountCreation"
                     activeClassName="selected">
                     Account Create
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink
+                    exact to="/Login"
+                    activeClassName="selected">
+                    Login
                   </NavLink>
                 </li>
                 <li>
@@ -50,13 +57,13 @@ function App() {
               exact path="/Dashboard"
               element={<Dashboard />}
             />
+            <Route
+              exact path="/Login"
+              element={<Login />}
+            />
           </Routes>
         </Router>
       </section>
-
-      <div className="ticks"></div>
-      <div className="ticks"></div>
-      <section id="spacer"></section>
     </>
   )
 }
