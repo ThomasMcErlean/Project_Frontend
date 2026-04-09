@@ -11,9 +11,11 @@ const Login = () => {
     const handleSubmit = (event) => {
         event.preventDefault();
         console.log("1");
-        axios.post("https://localhost:3000/login", login_Data).then((response) => {
+        axios.post("https://localhost:443/login", login_Data).then((response) => {
             console.log("2");
-            if (response.login) {
+            console.log(response);
+            console.log(response.data.login);
+            if (response.data.login) {
                 navigate("/Dashboard");
             } else {
                 console.log("login unsuccesful");
@@ -26,28 +28,14 @@ const Login = () => {
     }
     return (
         <>
+            <h1>Login</h1>
             <form onSubmit={handleSubmit}>
-                <input placeholder="Username" className="input-field" type="email"
+                <input placeholder="Username" className="input-field" 
                     value={username}
                     onChange={(e) => setUsername(e.target.value)} />
                 <input placeholder="Password" className="input-field" type="password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)} />
-                <button autoFocus>Login</button>
-            </form>
-            <form onSubmit={handleSubmit}>
-                <div className="input-container">
-                    <input placeholder="Username" className="input-field" type="email"
-                        value={username}
-                        onChange={(e) => setUsername(e.target.value)} />
-                    <label htmlFor="input-field" className="input-label">Username</label>
-                    <span className="input-highlight"></span>
-                </div>
-                <div className="input-container">
-                    <input placeholder="Password" className="input-field" type="password" />
-                    <label htmlFor="input-field" className="input-label">Password</label>
-                    <span className="input-highlight"></span>
-                </div>
                 <button autoFocus>Login</button>
             </form>
             <p>{responseMessage}</p>

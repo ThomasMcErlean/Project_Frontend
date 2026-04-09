@@ -1,42 +1,70 @@
+import React, { useState } from "react";
 const Accountcreate = () => {
+  const [account_Data, setAccountData] = useState({
+    username: "",
+    password: "",
+    address: "",
+    phone_Number: 0,
+    birth_Date: 1900,
+    two_Factor_Authentication: false
+  })
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const [Address, setAddress] = useState("");
+  const [DOB, setDOB] = useState("");
+  const [responseMessage, setResponseMessage] = useState("");
+  console.log(account_Data)
+  const handleSubmit = (event) => {
+    event.preventDefault();
+  }
   return (
     <>
-      <div className="input-container">
-        <input placeholder="Username" className="input-field" type="email" />
-        <label htmlFor="input-field" className="input-label">Username</label>
-        <span className="input-highlight"></span>
-      </div>
-      <div className="input-container">
-        <input placeholder="Password" className="input-field" type="password" />
-        <label htmlFor="input-field" className="input-label">Password</label>
-        <span className="input-highlight"></span>
-      </div>
-      <div className="input-container">
-        <input placeholder="Address 1" className="input-field" type="text" />
-        <label htmlFor="input-field" className="input-label">Address 1</label>
-        <span className="input-highlight"></span>
-      </div>
-      <div className="input-container">
-        <input placeholder="Address 2" className="input-field" type="text" />
-        <label htmlFor="input-field" className="input-label">Address 2</label>
-        <span className="input-highlight"></span>
-      </div>
-      <div className="input-container">
-        <input placeholder="Address 3" className="input-field" type="text" />
-        <label htmlFor="input-field" className="input-label">Address 3</label>
-        <span className="input-highlight"></span>
-      </div>
-      <div className="input-container">
-        <input placeholder="Postcode" className="input-field" type="text" />
-        <label htmlFor="input-field" className="input-label">Postcode</label>
-        <span className="input-highlight"></span>
-      </div>
-      <div className="input-container">
-        <input placeholder="Postcode" className="input-field" type="date" />
-        <label htmlFor="input-field" className="input-label">Postcode</label>
-        <span className="input-highlight"></span>
-      </div>
-
+      <h1>Account Creation</h1>
+      <form onSubmit={handleSubmit}>
+        <input placeholder="Username" className="input-field" type="email"
+          value={account_Data.username}
+          onChange={(e) => setAccountData({
+            ...account_Data,
+            username: e.target.value
+          })}/>
+        <input placeholder="Password" className="input-field" type="password"
+          value={account_Data.password}
+          onChange={(e) => setAccountData({
+            ...account_Data,
+            password: e.target.value
+          })} />
+        <input placeholder="Address line 1" className="input-field" type="text"
+          value={account_Data.address}
+          onChange={(e) => setAccountData({
+            ...account_Data,
+            address: e.target.value
+          })}/>
+        <input placeholder="Address line 2" className="input-field" type="text"
+          value={account_Data.address}
+          onChange={(e) => setAccountData({
+            ...account_Data,
+            password: e.target.value
+          })} />
+        <input placeholder="Address line 3" className="input-field" type="text"
+          value={account_Data.address}
+          onChange={(e) => setAccountData({
+            ...account_Data,
+            password: e.target.value
+          })} />
+        <input placeholder="Postcode" className="input-field" type="text"
+         value={account_Data.address}
+          onChange={(e) => setAccountData({
+            ...account_Data,
+            password: e.target.value
+          })}/>
+        <input placeholder="Date of birth " className="input-field"
+         value={account_Data.address}
+          onChange={(e) => setAccountData({
+            ...account_Data,
+            password: e.target.value
+          })} />
+        <button autoFocus>Login</button>
+      </form>
     </>)
 }
 

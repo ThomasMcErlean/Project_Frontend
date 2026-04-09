@@ -6,6 +6,7 @@ import './index.css'
 import Accountcreate from './pages/AccountCreate'
 import Dashboard from './pages/Dashboard'
 import Login from './pages/Login'
+import Product from './pages/Product'
 import {
   BrowserRouter as Router,
   Route,
@@ -45,6 +46,13 @@ function App() {
                     Dashboard
                   </NavLink>
                 </li>
+                <li>
+                  <NavLink
+                    exact to="/Product"
+                    activeClassName="selected">
+                    Product
+                  </NavLink>
+                </li>
               </ul>
             </nav>
           </header>
@@ -60,6 +68,10 @@ function App() {
             <Route
               exact path="/Login"
               element={<Login />}
+            />
+            <Route
+              exact path="/Product"
+              element={<Product />}
             />
           </Routes>
         </Router>
