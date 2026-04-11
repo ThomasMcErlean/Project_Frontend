@@ -9,8 +9,9 @@ function ProductListing({ products }) {
           <th>Price</th>
           <th>Stock</th>
           <th>Category</th>
-          <th>Stock</th>
+          <th>description</th>
           <th>Edit product</th>
+          <th>Delete product</th>
         </tr>
       </thead>
       <tbody>

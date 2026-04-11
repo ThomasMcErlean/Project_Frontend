@@ -7,11 +7,12 @@ function Product({product}) {
   return (
         <tr>
             <td>{product_data.name}</td>
-            <td>{product_data.price}</td>
+            <td>£{product_data.price}</td>
             <td>{product_data.stock}</td>
             <td>{product_data.category}</td>
             <td>{product_data.description}</td>
             <td><button>Edit</button></td>
+            <td><button>Delete</button></td>
         </tr>
   )
 }

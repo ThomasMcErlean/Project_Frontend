@@ -16,6 +16,22 @@ const Accountcreate = () => {
   console.log(account_Data)
   const handleSubmit = (event) => {
     event.preventDefault();
+    axios.post("https://localhost:443/accountCreate", account_Data).then((response) => {
+      console.log(response.data);
+      if (response.data.login) {
+        window.localStorage.setItem("login", JSON.stringify(response.data));
+        navigate("/Dashboard");
+      } else {
+        console.log("login unsuccesful");
+        setResponseMessage("login succesful");
+      }
+    }
+    ).catch((err) => {
+      console.log(err);
+      setResponseMessage("Error username or password incorrect");
+    });
+
+
   }
   return (
     <>
@@ -26,44 +42,26 @@ const Accountcreate = () => {
           onChange={(e) => setAccountData({
             ...account_Data,
             username: e.target.value
-          })}/>
+          })} />
         <input placeholder="Password" className="input-field" type="password"
           value={account_Data.password}
           onChange={(e) => setAccountData({
             ...account_Data,
             password: e.target.value
           })} />
-        <input placeholder="Address line 1" className="input-field" type="text"
+        <input placeholder="Address line" className="input-field" type="text"
           value={account_Data.address}
           onChange={(e) => setAccountData({
             ...account_Data,
             address: e.target.value
-          })}/>
-        <input placeholder="Address line 2" className="input-field" type="text"
-          value={account_Data.address}
-          onChange={(e) => setAccountData({
-            ...account_Data,
-            password: e.target.value
           })} />
-        <input placeholder="Address line 3" className="input-field" type="text"
-          value={account_Data.address}
-          onChange={(e) => setAccountData({
-            ...account_Data,
-            password: e.target.value
-          })} />
-        <input placeholder="Postcode" className="input-field" type="text"
-         value={account_Data.address}
-          onChange={(e) => setAccountData({
-            ...account_Data,
-            password: e.target.value
-          })}/>
         <input placeholder="Date of birth " className="input-field"
-         value={account_Data.address}
+          value={account_Data.address}
           onChange={(e) => setAccountData({
             ...account_Data,
-            password: e.target.value
+            DOB: e.target.value
           })} />
-        <button autoFocus>Login</button>
+        <button autoFocus>Create Account</button>
       </form>
     </>)
 }
