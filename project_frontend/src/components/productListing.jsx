@@ -2,6 +2,7 @@ import React from "react";
 import Product from "./product";
 function ProductListing({ products }) {
   return (
+    <figure>
     <table>
       <thead>
         <tr>
@@ -18,6 +19,7 @@ function ProductListing({ products }) {
         {products.map((product, index) => <Product key={index} product={product} />)}
       </tbody>
     </table>
+    </figure>
   );
 
 };
